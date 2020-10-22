@@ -20,7 +20,11 @@ function createWindow() {
 
   mainWindow.setBrowserView(view)
   view.setBounds({ x: 0, y: 0, width: 800, height: 600 })
-  view.setAutoResize({ width: true, height: true })
+  // view.setAutoResize({ width: true, height: true })
+  mainWindow.on('resize', () => {
+    const [width, height] = mainWindow.getSize()
+    view.setBounds({ x: 0, y: 0, width, height })
+  })
 
   // and load the index.html of the app.
   view.webContents.loadFile('index.html')
