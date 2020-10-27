@@ -9,4 +9,11 @@ window.addEventListener('DOMContentLoaded', () => {
   for (const type of ['chrome', 'node', 'electron']) {
     replaceText(`${type}-version`, process.versions[type])
   }
+
+  document.addEventListener('mouseenter', () => {
+    document.body.style.color = 'blue'
+  })
+  document.addEventListener('mouseleave', () => {
+    document.body.style.color = 'red'
+  })
 })
